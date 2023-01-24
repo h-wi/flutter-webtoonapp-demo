@@ -47,20 +47,20 @@ class _DetailScreenState extends State<DetailScreen> {
     // 따라서 DetailScreen class는 StatefulWidget로 되어야 한다.
   }
 
-  // onHeartTap() async {
-  //   final likedToons = prefs.getStringList('likedToons');
-  //   if (likedToons != null) {
-  //     if (isLiked) {
-  //       likedToons.remove(widget.id);
-  //     } else {
-  //       likedToons.add(widget.id);
-  //     }
-  //     await prefs.setStringList('likedToons', likedToons);
-  //     setState(() {
-  //       isLiked = !isLiked;
-  //     });
-  //   }
-  // }
+  onHeartTap() async {
+    final likedToons = prefs.getStringList('likedToons');
+    if (likedToons != null) {
+      if (isLiked) {
+        likedToons.remove(widget.id);
+      } else {
+        likedToons.add(widget.id);
+      }
+      await prefs.setStringList('likedToons', likedToons);
+      setState(() {
+        isLiked = !isLiked;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,14 +78,14 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.green,
-        // actions: [
-        //   IconButton(
-        //     // shared_preferences를 이용해서 사용자 핸드폰에 favorite 데이터 저장.
-        //     onPressed: onHeartTap,
-        //     icon: Icon(
-        //         isLiked ? Icons.favorite : Icons.favorite_outline_outlined),
-        //   )
-        // ],
+        actions: [
+          IconButton(
+            // shared_preferences를 이용해서 사용자 핸드폰에 favorite 데이터 저장.
+            onPressed: onHeartTap,
+            icon: Icon(
+                isLiked ? Icons.favorite : Icons.favorite_outline_outlined),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
