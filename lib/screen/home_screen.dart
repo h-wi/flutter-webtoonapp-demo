@@ -1,7 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:webtoon/models/webtoon.dart';
 import 'package:webtoon/services/api_service.dart';
+import 'package:webtoon/services/auth_service.dart';
+import 'package:webtoon/widgets/auth_widget.dart';
 import 'package:webtoon/widgets/webtoon_widget.dart';
+
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -38,6 +43,40 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: makeList(snapshot),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    bottom: 150,
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Consumer<ApplicationState>(
+                            builder: ((context, appState, _) => AuthFunc(
+                                loggedIn: appState.loggedIn,
+                                signOut: () {
+                                  FirebaseAuth.instance.signOut();
+                                })),
+                          ),
+                          StreamBuilder(
+                            stream: FirebaseAuth.instance.authStateChanges(),
+                            builder:
+                                (BuildContext _, AsyncSnapshot<User?> user) {
+                              if (!user.hasData) {
+                                return const googleLogin();
+                              }
+                              return const SizedBox(
+                                width: 1,
+                              );
+                            },
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             );
