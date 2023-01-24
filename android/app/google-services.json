@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "788816949080",
+    "project_id": "webtoon-authorization",
+    "storage_bucket": "webtoon-authorization.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788816949080:android:f0c7b0d086b5e5e60e7f2d",
+        "android_client_info": {
+          "package_name": "com.example.webtoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788816949080-i0snr9qg56n9a0vg87d4ka0regrfj3vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIjfU_W0WsXrCFMZ1I39-T-bnV_gloVP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788816949080-i0snr9qg56n9a0vg87d4ka0regrfj3vu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "788816949080-eimmstfv8c6sb6ej88l8smv5sooc9v0a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.webtoon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
